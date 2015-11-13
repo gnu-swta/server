@@ -9,6 +9,5 @@ var professor = require('./professor');
 
 /* use student, professor listing. */
 router.use('/student', student);
-router.use('professor', professor);
 
 module.exports = router;
