@@ -79,3 +79,6 @@ crashlytics-build.properties
 
 # log files
 /log
+
+# config files
+/config
