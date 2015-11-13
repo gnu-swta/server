@@ -17,7 +17,7 @@ var passwd = args[2];
 //console.log('start phantomjs');
 
 page.onConsoleMessage = function() {
-    page.render("./capture/step_" + testindex + ".png");
+    //page.render("./capture/step_" + testindex + ".png");
 };
 
 page.onLoadStarted = function() {
@@ -60,7 +60,7 @@ var steps = [
             //console.log('-> capture screen step 0');
         });
 
-        page.render("./capture/step_" + testindex + ".png");
+        //page.render("./capture/step_" + testindex + ".png");
     },
     function() {
         //Enter Credentials
@@ -93,7 +93,7 @@ var steps = [
         //"&sch_student_no=2011010904";   // 원만이
 
         // 수업정보 JSON 받아오는 요청
-        page.viewportSize = { width: 1024, height: 768 };
+        //page.viewportSize = { width: 1024, height: 768 };
         page.open('https://nis.gnu.ac.kr/susj/su/sa_su_7150q.gnu', 'POST', postBody, function() {
 
             var plainText = JSON.parse(page.plainText);
@@ -106,7 +106,7 @@ var steps = [
             // Do other things here...
         });
 
-        page.render("./capture/step_" + testindex + ".png");
+        //page.render("./capture/step_" + testindex + ".png");
 
     },
     function () {
@@ -115,10 +115,10 @@ var steps = [
             //로그인이 완료된 페이지
             console.log('-> capture screen step 3');
         });
-        page.render("./capture/step_" + testindex + ".png");
+        //page.render("./capture/step_" + testindex + ".png");
     },
     function () {
-        page.render("./capture/step_" + testindex + ".png");
+        //page.render("./capture/step_" + testindex + ".png");
     }
 ];
 
