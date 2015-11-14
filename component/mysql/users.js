@@ -13,8 +13,9 @@ module.exports = {
                 return;
             }
 
-            connection.query("SELECT * FROM student WHERE pk_student=?", [fk_student], function (err, rows) {
+            connection.query("SELECT * FROM Student WHERE pk_student=?", [fk_student], function (err, rows) {
                 if (err) {
+                    console.log("sql : " + this.sql);
                     callback(err, null);
                     return;
                 }

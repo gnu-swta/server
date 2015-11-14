@@ -22,6 +22,7 @@ module.exports.student = {
                     + "SELECT pk_class FROM Class "
                     + "WHERE `code`=? AND `group`=?;", [post, e.subject_cd, e.sg_ban_no * 1], function (err, rows) {
                     if (err) {
+                        console.log("sql : " + this.sql);
                         callback(err, null);
                         return;
                     }
@@ -40,6 +41,7 @@ module.exports.student = {
             connection.query("DELETE FROM Student_Class_register WHERE `fk_student`=?;"
                 + "INSERT IGNORE INTO Student SET ?", [student.pk_student, student], function (err, rows) {
                 if (err) {
+                    console.log("sql : " + this.sql);
                     callback(err, null);
                     isError = true;
                 }
@@ -62,6 +64,7 @@ module.exports.student = {
                 eachQuering(function (err, pk_class) {
                     if(isError) return;
                     if (err) {
+                        console.log("sql : " + this.sql);
                         isError = true;
                         callback(err, null);
                         return;
