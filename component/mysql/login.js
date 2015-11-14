@@ -18,8 +18,8 @@ module.exports.student = {
             var classArr = [];
 
             function eachQuering(callback, student, post, e) {
-                connection.query("INSERT IGNORE INTO class SET ?; "
-                    + "SELECT pk_class FROM class "
+                connection.query("INSERT IGNORE INTO Class SET ?; "
+                    + "SELECT pk_class FROM Class "
                     + "WHERE `code`=? AND `group`=?;", [post, e.subject_cd, e.sg_ban_no * 1], function (err, rows) {
                     if (err) {
                         callback(err, null);
@@ -30,15 +30,15 @@ module.exports.student = {
                     callback(null, pk_class);
 
                     // student_class_lecture table을 갱신합니다.
-                    connection.query("INSERT IGNORE INTO student_class_register SET ?"
+                    connection.query("INSERT IGNORE INTO Student_Class_register SET ?"
                         , {fk_student: student.pk_student, fk_class: pk_class});
                 });
             }
 
             // 로그인한 학생의 수강정보를 초기화합니다
             // 로그인한 학생의 정보를 저장함 (있으면 무시)
-            connection.query("DELETE FROM student_class_register WHERE `fk_student`=?;"
-                + "INSERT IGNORE INTO student SET ?", [student.pk_student, student], function (err, rows) {
+            connection.query("DELETE FROM Student_Class_register WHERE `fk_student`=?;"
+                + "INSERT IGNORE INTO Student SET ?", [student.pk_student, student], function (err, rows) {
                 if (err) {
                     callback(err, null);
                     isError = true;
