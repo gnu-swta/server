@@ -90,7 +90,8 @@ var steps = [
             "&sch_est_year=2015"+
             "&sch_est_term_gb=20"+
             "&sch_student_no=" + student;
-        //"&sch_student_no=2011010904";   // 원만이
+            // "&sch_student_no=2011010904";   // 원만이
+            //"&sch_student_no=2009011013";   // 명환 행님
 
         // 수업정보 JSON 받아오는 요청
         //page.viewportSize = { width: 1024, height: 768 };

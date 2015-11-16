@@ -1,11 +1,11 @@
 /**
  * Created by jeon on 15. 11. 8..
  */
-var mysql = require('../../component/mysql/users');
+var mysql = require('../component/mysql/users');
 var express = require('express');
 var router = express.Router();
 
-router.get('/:fk_student', function(req, res) {
+router.get('/:fk_professor', function(req, res) {
     var fk_student = req.params.fk_student;
 
     mysql.getStudent(function(err, student) {

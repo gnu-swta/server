@@ -75,10 +75,10 @@ crashlytics-build.properties
 
 
 # cqputr images
-/capture
+/capture/
 
 # log files
-/log
+/log/
 
 # config files
-/config
+/config/

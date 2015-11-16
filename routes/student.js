@@ -1,12 +1,19 @@
 /**
  * Created by jeon on 15. 11. 8..
  */
-var mysql = require('../../component/mysql/users');
+var mysql = require('../component/mysql/users');
 var express = require('express');
 var router = express.Router();
 
-router.get('/:fk_professor', function(req, res) {
-    var fk_student = req.params.fk_student;
+router.get('/:fk_student', function(req, res) {
+    var fk_student = req.params.fk_student * 1;
+
+    if (!fk_student)
+    {
+        console.log("error, Invaild params");
+        res.status(500).send({"msg" : "Invaild params"});
+        return;
+    }
 
     mysql.getStudent(function(err, student) {
         if (err) {
