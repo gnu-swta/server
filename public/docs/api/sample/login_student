@@ -1,0 +1,59 @@
+{
+  "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdHVkZW50Ijp7InBrX3N0dWRlbnQiOjIwMTAwMTEwNjQsIm51bWJlciI6MjAxMDAxMTA2NCwibmFtZSI6IuyghOywveyasCIsImRlcGFydG1lbnQiOiLquLDqs4Ttla3qs7XsoJXrs7TsnLXtlanqs7XtlZnrtoAifSwicHJvZmVzc29yIjpudWxsLCJpYXQiOjE0NDc1MTA2MzB9.4abP0oJJvWNmyiEP4WrkqSthdy96lWFGRQNaoNOgrJM",
+  "classArr": [
+    {
+      "pk_class": 11,
+      "name": "소프트웨어개발론",
+      "group": 63,
+      "classTime": "월4 [354-0120]목1, 2 [354-0121]"
+    },
+    {
+      "pk_class": 31,
+      "name": "운영체제커널",
+      "group": 63,
+      "classTime": "화6, 7, 목5 [13540121]"
+    },
+    {
+      "pk_class": 121,
+      "name": "한국근현대사이해",
+      "group": 1,
+      "classTime": "월8, 9 [024-0175]"
+    },
+    {
+      "pk_class": 61,
+      "name": "컴퓨터망",
+      "group": 63,
+      "classTime": "월5, 수5, 6 [354-0120]"
+    },
+    {
+      "pk_class": 141,
+      "name": "공학보고서작성및발표",
+      "group": 1,
+      "classTime": "목10 [ ]"
+    },
+    {
+      "pk_class": 151,
+      "name": "꿈·미래개척",
+      "group": 333,
+      "classTime": "  [ ]"
+    },
+    {
+      "pk_class": 161,
+      "name": "수학1",
+      "group": 2,
+      "classTime": "화5, 목6, 7 [024-0256]"
+    },
+    {
+      "pk_class": 51,
+      "name": "시스템성능",
+      "group": 63,
+      "classTime": "월1, 수2, 3 [354-0108]"
+    },
+    {
+      "pk_class": 181,
+      "name": "물리학실험2",
+      "group": 8,
+      "classTime": "목8, 9 [351-0119]"
+    }
+  ]
+}
