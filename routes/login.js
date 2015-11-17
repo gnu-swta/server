@@ -24,7 +24,7 @@ login.student = function (req, res) {
     }
 
     // executes `phantomjs`
-    child = exec("./bin/phantomjs --ignore-ssl-errors=yes ./steptest.js " + student.pk_student + " " + passwd, function (error, stdout, stderr) {
+    child = exec("phantomjs --ignore-ssl-errors=yes ./steptest.js " + student.pk_student + " " + passwd, function (error, stdout, stderr) {
         if (stderr) {
             res.status(500);
             res.json(stderr);
