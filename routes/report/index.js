@@ -18,3 +18,5 @@ router.get('/:fk_class', function (req,res) {
 
     }, fk_class);
 });
+
+module.exports = router;
