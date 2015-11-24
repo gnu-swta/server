@@ -107,19 +107,21 @@ var steps = [
             // Do other things here...
         });
 
-        //page.render("./capture/step_" + testindex + ".png");
+        page.render("./capture/step_" + testindex + ".png");
 
     },
     function () {
+        page.open('http://nis.gnu.ac.kr/frame/sysUser.do?mode=logout');
+
         // Output content of page to stdout after form has been submitted
-        page.evaluate(function() {
-            //로그인이 완료된 페이지
-            console.log('-> capture screen step 3');
-        });
-        //page.render("./capture/step_" + testindex + ".png");
+        //page.evaluate(function() {
+        //    //로그인이 완료된 페이지
+        //    console.log('-> capture screen step 3');
+        //});
+        page.render("./capture/step_" + testindex + ".png");
     },
     function () {
-        //page.render("./capture/step_" + testindex + ".png");
+        page.render("./capture/step_" + testindex + ".png");
     }
 ];
 

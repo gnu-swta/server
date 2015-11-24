@@ -6,6 +6,8 @@ var login = require('./login');
 var student = require('./student');
 var professor = require('./professor');
 var _class = require('./class');
+var chat = require('./chat');
+var report = require('./report');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -20,5 +22,8 @@ router.post('/login/student', login.student);
 router.post('/login/professor', login.professor);
 
 router.use('/class', jwt({secret: 'wpdjvks'}), _class);
+router.use('/chat', jwt({secret: 'wpdjvks'}), chat);
+router.use('/report', jwt({secret: 'wpdjvks'}), report);
+
 
 module.exports = router;

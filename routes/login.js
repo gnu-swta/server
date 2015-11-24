@@ -82,6 +82,7 @@ login.student = function (req, res) {
             };
             res.send(resSend);
         }, student, mst_list);
+        child.kill();
     });
 };
 
