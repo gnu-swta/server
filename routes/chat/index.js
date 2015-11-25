@@ -53,7 +53,7 @@ router.post('/', function(req, res) {
 
     var post = {
         fk_class: fk_class,
-        fk_student: student.fk_student,
+        fk_student: student.pk_student,
         name : student.name,
         department : student.department,
         msg: msg
