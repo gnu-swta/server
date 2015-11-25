@@ -23,8 +23,8 @@ router.post('/login/professor', login.professor);
 
 router.use('/class', jwt({secret: 'wpdjvks'}), _class);
 router.use('/chat', jwt({secret: 'wpdjvks'}), chat);
-//router.use('/report', jwt({secret: 'wpdjvks'}), report);
-router.use('/report', report);
+router.use('/report', jwt({secret: 'wpdjvks'}), report);
+//router.use('/report', report);
 
 
 module.exports = router;
