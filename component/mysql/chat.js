@@ -16,6 +16,7 @@ function _getChat (callback, fk_class, fk_chat) {
         connection.query("SELECT * FROM Chat WHERE fk_class=? AND pk_chat >= ?", [fk_class, fk_chat], function (err, rows) {
             if (err) {
                 console.log("sql : " + this.sql);
+                err.sql = this.sql;
                 callback(err, null);
                 return;
             }
@@ -34,9 +35,12 @@ module.exports = {
                 return;
             }
 
+            post.time = new Date();
+
             connection.query("INSERT INTO Chat SET ?", [post], function (err) {
                 if (err) {
                     console.log("sql : " + this.sql);
+                    err.sql = this.sql;
                     callback(err, null);
                     return;
                 }

@@ -17,7 +17,7 @@ function getChat(res, fk_class, fk_chat) {
     mysql.getChat(function (err, student) {
         if (err) {
             console.log("error : can't send sql query");
-
+            console.log(err.sql);
             res.status(500).send({msg: "can't send sql query"});
             return;
         }
@@ -41,11 +41,11 @@ router.get('/:fk_class/:fk_chat', function(req, res) {
 
 router.post('/', function(req, res) {
     var fk_class = req.body.fk_class * 1;
-    var fk_student = req.user.student.pk_student;
+    var student = req.user.student;
     var fk_chat = req.body.seq * 1;
     var msg = req.body.msg;
 
-    if (!fk_class || !fk_student || !msg) {
+    if (!fk_class || !student || !msg) {
         console.log("error, Invaild params");
         res.status(500).send({"msg": "Invaild params"});
         return;
@@ -53,13 +53,16 @@ router.post('/', function(req, res) {
 
     var post = {
         fk_class: fk_class,
-        fk_student: fk_student,
+        fk_student: student.fk_student,
+        name : student.name,
+        department : student.department,
         msg: msg
     };
 
     mysql.putChat(function (err, result) {
         if (err) {
             console.log("error : can't send sql query");
+            console.log(err.sql);
 
             res.status(500).send({msg: "can't send sql query"});
             return;

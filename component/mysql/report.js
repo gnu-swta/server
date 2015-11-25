@@ -15,6 +15,7 @@ module.exports = {
             connection.query("SELECT * FROM Report WHERE fk_class=?", [fk_class], function (err, rows) {
                 if (err) {
                     console.log("sql : " + this.sql);
+                    err.sql = this.sql;
                     callback(err, null);
                     return;
                 }
@@ -23,21 +24,22 @@ module.exports = {
         });
     },
 
-    makeReport : function(callback, post, fk_chat) {
+    postReport : function(callback, post, fk_chat) {
         pool.getConnection(function (err, connection) {
             if (err) {
                 callback(err, null);
                 return;
             }
 
-            connection.query("INSERT INTO Chat SET ?", [post], function (err) {
+            connection.query("INSERT INTO Report SET ?", [post], function (err, rows) {
                 if (err) {
                     console.log("sql : " + this.sql);
+                    err.sql = this.sql;
                     callback(err, null);
                     return;
                 }
 
-                _getChat (callback, post.fk_class, fk_chat);
+                callback (null, rows);
             });
         });
     }
