@@ -22,6 +22,7 @@ module.exports = {
                 }
                 callback(null, rows[0]);
             });
+            connection.release();
         });
     },
     getProfessor : function(callback, fk_professor) {

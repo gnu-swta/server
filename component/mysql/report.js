@@ -21,10 +21,11 @@ module.exports = {
                 }
                 callback(null, rows);
             });
+            connection.release();
         });
     },
 
-    postReport : function(callback, post, fk_chat) {
+    postReport : function(callback, post) {
         pool.getConnection(function (err, connection) {
             if (err) {
                 callback(err, null);
@@ -41,6 +42,7 @@ module.exports = {
 
                 callback (null, rows);
             });
+            connection.release();
         });
     }
 };

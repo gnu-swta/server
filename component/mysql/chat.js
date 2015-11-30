@@ -22,6 +22,8 @@ function _getChat (callback, fk_class, fk_chat) {
             }
             callback(null, rows);
         });
+
+        connection.release();
     });
 }
 
@@ -46,7 +48,10 @@ module.exports = {
                 }
 
                 _getChat (callback, post.fk_class, fk_chat);
+
             });
+
+            connection.release();
         });
     }
 };

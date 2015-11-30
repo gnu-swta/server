@@ -21,6 +21,7 @@ module.exports = {
 
                 callback(null, rows);
             });
+            connection.release();
         });
     },
 
@@ -40,6 +41,7 @@ module.exports = {
 
                 callback(null, rows[0].extension);
             });
+            connection.release();
         });
     },
 
@@ -59,6 +61,7 @@ module.exports = {
 
                 callback(null, rows);
             });
+            connection.release();
         });
     }
 };
