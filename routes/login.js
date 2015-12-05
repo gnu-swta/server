@@ -18,6 +18,7 @@ login.student = function (req, res) {
     if ( !student.pk_student || !passwd )
     {
         console.log('error, empty value is not allowed');
+        console.log(req.body);
 
         res.status(500).send({msg: "error, empty value is not allowed"});
         return;
@@ -88,8 +89,32 @@ login.student = function (req, res) {
 
 login.professor = function (req, res)
 {
-    res.status(200);
-    res.send('{msg:"아직 구현되지 않았습니다"}');
+    var professor = req.body.professor;
+
+    if (!professor)
+    {
+        console.log('error, empty value is not allowed');
+        console.log(req.body);
+
+        res.status(500).send({msg: "error, empty value is not allowed"});
+        return;
+    }
+
+    var payload = {
+        student: null,
+        professor: {
+            name : req.body.name,
+            pk_professor : professor,
+            number : professor
+        }
+    };
+
+    var token = jwt.sign(payload, 'wpdjvks');
+    var resSend = {
+        jwt: token
+    };
+
+    res.send(resSend);
 };
 
 module.exports = login;

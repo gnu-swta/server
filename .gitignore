@@ -81,7 +81,7 @@ crashlytics-build.properties
 /log/
 
 # config files
-/config/mysql.js
+config
 
 # binary file (os dependance)
 /bin/phantomjs
