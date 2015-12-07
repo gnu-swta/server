@@ -92,7 +92,7 @@ router.post('/', function (req,res) {
             +post.fk_student+'.'+extension;
 
 
-        fs.writeFile(destination, data,function(error) {
+        fs.writeFile(destination, data, function(error) {
             if (error) {
                 console.log(error);
 
@@ -113,7 +113,6 @@ router.post('/', function (req,res) {
         });
     });
 
-    console.log(req.files);
 });
 
 module.exports = router;

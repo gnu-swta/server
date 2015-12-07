@@ -39,7 +39,11 @@ module.exports = {
                     return;
                 }
 
-                callback(null, rows[0].extension);
+                if(rows.length == 0)
+                    callback(null, null);
+                else
+                    callback(null, rows[0].extension);
+
             });
             connection.release();
         });
@@ -52,7 +56,7 @@ module.exports = {
                 return;
             }
 
-            connection.query("INSERT INTO ReportSubmit SET ?", [post], function (err, rows) {
+            connection.query("REPLACE INTO ReportSubmit SET ?", [post], function (err, rows) {
                 if (err) {
                     err.sql = this.sql;
                     callback(err, null);
@@ -63,5 +67,6 @@ module.exports = {
             });
             connection.release();
         });
+
     }
 };
