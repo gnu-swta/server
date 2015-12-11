@@ -67,6 +67,7 @@ module.exports.student = {
                             console.log("sql : " + this.sql);
                             isError = true;
                             callback(err, null);
+                            connection.release();
                             return;
                         }
 
@@ -88,3 +89,28 @@ module.exports.student = {
         });
     }
 };
+
+module.exports.professor = {
+    login : function (callback, professor) {
+        pool.getConnection(function (err, connection) {
+            if (err) {
+                callback(err, null);
+                return;
+            }
+
+            connection.query("SELECT c.* FROM `Professor_Class_lecture` p, `Class` c "
+                        +"WHERE c.pk_class = p.fk_class AND p.fk_professor=?;", [professor], function (err, rows) {
+                if (err) {
+                    console.log("sql : " + this.sql);
+                    err.sql = this.sql;
+                    callback(err, null);
+                    connection.release();
+                    return;
+                }
+
+                callback(null, rows);
+                connection.release();
+            });
+        });
+    }
+}

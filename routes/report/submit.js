@@ -38,6 +38,11 @@ router.get('/file/:fk_report/:fk_student.:extension', function (req, res) {
 
     if (fs.existsSync(filePath)) {
         res.sendfile(filePath);
+
+        if (req.user.professor)
+            mysql.openFile(function(err, result) {
+                console.log('professor opened file (report : '+fk_report+', student : '+fk_student+')');
+            }, fk_report, fk_student);
     }
     else {
         res.statusCode = 404;

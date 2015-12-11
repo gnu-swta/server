@@ -109,12 +109,15 @@ login.professor = function (req, res)
         }
     };
 
-    var token = jwt.sign(payload, 'wpdjvks');
-    var resSend = {
-        jwt: token
-    };
+    mysql.professor.login(function(err, result) {
+        var token = jwt.sign(payload, 'wpdjvks');
+        var resSend = {
+            jwt: token,
+            classArr: result
+        };
 
-    res.send(resSend);
+        res.send(resSend);
+    }, professor);
 };
 
 module.exports = login;

@@ -67,6 +67,25 @@ module.exports = {
             });
             connection.release();
         });
+    },
 
+    openFile : function(callback, fk_class, fk_student) {
+        pool.getConnection(function (err, connection) {
+            if (err) {
+                callback(err, null);
+                return;
+            }
+
+            connection.query("UPDATE ReportSubmit SET ? WHERE fk_report=? AND fk_student=?", [{opened : true}, fk_class, fk_student], function (err, rows) {
+                if (err) {
+                    err.sql = this.sql;
+                    callback(err, null);
+                    return;
+                }
+
+                callback(null, rows);
+            });
+            connection.release();
+        });
     }
 };
